@@ -73,7 +73,6 @@ public class HW2 {
  */
 class Deck{
 	private ArrayList<Card> cards;
-	private Object card;
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
