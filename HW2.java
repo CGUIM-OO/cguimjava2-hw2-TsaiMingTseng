@@ -1,10 +1,10 @@
-import java.util.ArrayList;
+﻿import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- * @author TODO: please add student ID and name here
- * Try to write some comments for your codes (methods, 15 points)
+ * @author TODO: B0544220 蔡明蒼
+ * @param  nDeck 總共有幾副牌
  */
 public class HW2 {
 
@@ -64,13 +64,31 @@ public class HW2 {
 
 }
 /**
- * Description: TODO: please add description here
+ * Description: TODO:
+ * first for loop : 幾副牌
+ * second for loop :卡牌花色
+ * third for loop:卡牌大小值
+ * @param suit 花色
+ * @param rank 牌的大小
  */
 class Deck{
 	private ArrayList<Card> cards;
+	private Object card;
 	//TODO: Please implement the constructor (30 points)
 	public Deck(int nDeck){
 		cards=new ArrayList<Card>();
+		int suit , rank ;
+		for(int x = 0 ; x < nDeck ; x ++)
+		{
+			for(suit = 1 ; suit < 5 ; suit++)
+			{
+				for(rank = 1 ; rank < 14 ; rank ++)
+				{
+					Card card=new Card(suit,rank);
+					cards.add(card);
+				}
+			}
+		}
 		//1 Deck have 52 cards, https://en.wikipedia.org/wiki/Poker
 		//Hint: Use new Card(x,y) and 3 for loops to add card into deck
 		//Sample code start
@@ -81,6 +99,12 @@ class Deck{
 	}	
 	//TODO: Please implement the method to print all cards on screen (10 points)
 	public void printDeck(){
+		for(int count = 0 ; count < cards.size() ; count ++)
+		{
+			Card card = cards.get(count);
+			card.printCard(card);
+		}
+		
 		//Hint: print all items in ArrayList<Card> cards, 
 		//TODO: please implement and reuse printCard method in Card class (5 points)
 
@@ -90,7 +114,11 @@ class Deck{
 	}
 }
 /**
- * Description: TODO: please add description here
+ * Description: TODO:
+ * Card function 給這張牌大小
+ * printCard function 先用字串陣列分別寫出花色,大小 ,再依卡片花色,大小值給予名稱,最後給玩家看卡牌內容 
+ * getSuit function    傳回卡牌花色
+ * getRank function    傳回卡牌大小值
  */
 class Card{
 	private int suit; //Definition: 1~4, Clubs=1, Diamonds=2, Hearts=3, Spades=4
@@ -103,8 +131,16 @@ class Card{
 		suit=s;
 		rank=r;
 	}	
+	public static char[] card(Card number) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
-	public void printCard(){
+	public void printCard(Card card){
+		String kind[]={"Clubs" , "Diamonds", "Hearts", "Spades"};
+		String number[] = {"Ace" , "TWO" , "THREE" , "FOUR" , "FIVE" , "SIX" ,
+				"SEVEN" , "EIGHT" , "NINE" , "TEN" , "J" , "Q" , "K"};
+		System.out.println("(" + suit +  "," + rank + ") \t = (" + kind[suit-1] + "," + number[rank-1] + ")");
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
 
 	}
