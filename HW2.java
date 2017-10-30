@@ -101,7 +101,7 @@ class Deck{
 		for(int count = 0 ; count < cards.size() ; count ++)
 		{
 			Card card = cards.get(count);
-			card.printCard(card);
+			card.printCard();
 		}
 		
 		//Hint: print all items in ArrayList<Card> cards, 
@@ -135,11 +135,11 @@ class Card{
 		return null;
 	}
 	//TODO: 1. Please implement the printCard method (20 points, 10 for suit, 10 for rank)
-	public void printCard(Card card){
+	public void printCard(){
 		String kind[]={"Clubs" , "Diamonds", "Hearts", "Spades"};
 		String number[] = {"Ace" , "TWO" , "THREE" , "FOUR" , "FIVE" , "SIX" ,
 				"SEVEN" , "EIGHT" , "NINE" , "TEN" , "J" , "Q" , "K"};
-		System.out.println("(" + suit +  "," + rank + ") \t = (" + kind[suit-1] + "," + number[rank-1] + ")");
+		System.out.println("(" + kind[suit-1] + "," + number[rank-1] + ")");
 		//Hint: print (System.out.println) card as suit,rank, for example: print 1,1 as Clubs Ace
 
 	}
